@@ -3,3 +3,4 @@ venv
 101_food_classes_10_percent.h5
 101_food_classes_10_percent
 food_classification_model.h5
+logs

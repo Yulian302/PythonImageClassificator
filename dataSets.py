@@ -22,5 +22,10 @@ def set_generator(train, target_dir, image_size, batch_size, i):
     return t_gen
 
 
-train_set = set_generator(True, '101_food_classes_10_percent/train', (224, 224), batch_size=32, i=classes)
-test_set = set_generator(False, '101_food_classes_10_percent/test', (224, 224), batch_size=32, i=classes)
+data_dir = os.path.join(
+    '101_food_classes_10_percent/'
+)
+train_dir = os.path.join(data_dir, 'train/')
+test_dir = os.path.join(data_dir, 'test/')
+train_set = set_generator(True, train_dir, (224, 224), 32, [0, 1, 2])
+test_set = set_generator(False, test_dir, (224, 224), 32, [0, 1, 2])
