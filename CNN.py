@@ -1,5 +1,5 @@
 from keras.layers import Conv2D, MaxPooling2D, Dropout, Flatten, Dense
-from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array
+from keras.utils import img_to_array
 import os
 import random
 from keras.optimizers import Adam
