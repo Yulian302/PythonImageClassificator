@@ -4,7 +4,7 @@ from keras.models import Model
 from keras.optimizers import Adam
 
 
-def create_resnet_model(num_layers, num_units, num_classes):
+def create_resnet_model(num_layers, num_units, num_classes, fine_tuning=False):
     # Load the pre-trained ResNet50 model without the classification head
     base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
     # Add a new classification head to the model
@@ -18,4 +18,7 @@ def create_resnet_model(num_layers, num_units, num_classes):
     # Freeze the weights of the base model to avoid overfitting
     for layer in base_model.layers:
         layer.trainable = False
+    if fine_tuning:
+        for layer in base_model.layers[:-10]:
+            layer.trainable = True
     return model
